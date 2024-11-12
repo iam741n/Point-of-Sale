@@ -1,0 +1,155 @@
+/* Login.css */
+
+/* Add animation to the .login-card */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px); /* Initial position below */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Final position */
+    }
+}
+
+.login-body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #101820; /* Dark brown background color */
+}
+
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.login-card {
+    background-color: #FEE715;
+    padding: 20px;
+    border-radius: 10px;
+    width: 520px;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8), 0px 0px 20px rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    animation: fadeIn 1s ease-out; /* Apply fade-in animation */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+}
+
+.logo {
+    font-size: 28px;
+    font-family: 'Poppins', sans-serif; /* Use the closest matching font */
+    color: #000000;
+    margin-bottom: 30px;
+}
+
+.login-button {
+    width: 70%;
+    border-radius: 25px;
+    font-weight: bold;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 18px;
+    background-color: #101820 !important;
+    border: none !important;
+    color: white;
+    transition: color 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+}
+
+.login-button:hover {
+    color: rgb(184, 211, 29);
+    background-color: #333333;
+}
+
+.username-input, .password-input {
+    background-color: #807b79;
+    border: 1px solid #196652;
+    color: #ffffff;
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.username-input:focus, .password-input:focus {
+    background-color: #4a4a4a; /* Change color when focused */
+}
+
+.forgot-password, .create-account-link {
+    color: #007bff;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0;
+    font-size: 1rem;
+    background: none;
+    border: none;
+}
+
+.forgot-password:hover, .create-account-link:hover {
+    color: #014288;
+}
+
+.register-link {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #51585e; /* Optional: slightly lighter color for text */
+}
+
+/* For tablet screens */
+@media (max-width: 768px) {
+    .login-card {
+        width: 80%;
+        padding: 15px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    .login-button {
+        width: 80%;
+        font-size: 16px;
+    }
+
+    .username-input, .password-input {
+        font-size: 14px;
+    }
+
+    .forgot-password, .create-account-link {
+        font-size: 0.9rem;
+    }
+}
+
+/* For mobile screens */
+@media (max-width: 480px) {
+    .login-card {
+        width: 90%;
+        padding: 10px;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .login-button {
+        width: 90%;
+        font-size: 14px;
+    }
+
+    .username-input, .password-input {
+        font-size: 14px;
+    }
+
+    .forgot-password, .create-account-link {
+        font-size: 0.8rem;
+    }
+
+    .register-link {
+        font-size: 0.8rem;
+    }
+}

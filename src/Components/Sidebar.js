@@ -20,7 +20,7 @@ function Sidebar() {
     <div className={`sidebar ${isSidebarOpen ? 'open' : 'closed'}`}>
       <div className="logo" onClick={toggleSidebar}>
         <img src="/menu.png" alt="Virtual Rides" className="logo-img" />
-        <h2>Virtual Rides</h2> {/* Virtual Rides text */}
+        <h2 style={{ color: 'white' }}>Virtual Rides</h2> {/* Virtual Rides text */}
       </div>
 
       {/* Sidebar items */}
