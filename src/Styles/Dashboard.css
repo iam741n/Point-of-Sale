@@ -1,0 +1,254 @@
+/* Base Styles */
+.dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.content-container {
+  display: flex;
+  flex: 1;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+/* Override the default Bootstrap outline button styles for + and - buttons */
+/* Styling for buttons to make them black and white */
+.btn-outline-secondary {
+  background-color: rgb(255, 255, 255) !important;  /* Ensure button background is black */
+  color: #000000 !important;  /* Ensure text color is white */
+  border-color: #ccc !important; /* Border color */
+  
+}
+
+/* Hover effect */
+.btn-outline-secondary:hover {
+  background-color: #000000 !important;  /* Slightly lighter background on hover */
+  border-color: #aaa !important; /* Darker border on hover */
+  color: #f0f0f0 !important; /* Text color on hover */
+}
+
+/* Focus effect, just in case it might have a blue outline */
+.btn-outline-secondary:focus {
+  box-shadow: none !important; /* Remove the blue outline on focus */
+}
+
+
+
+.center-panel {
+  flex: 3;
+  background-color: #2f2f2f;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+.date-time {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 15px;
+}
+
+.actions button {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  font-family: "Verdana", "Helvetica", Sans-serif;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.actions button:hover {
+  background-color: #777;
+}
+
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.item-card {
+  background-color: #92BE75;
+  color: black;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.quantity-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  gap: 10px;
+}
+
+.quantity-control button {
+  padding: 5px 10px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cart-section {
+  flex: 1;
+  background-color: #444;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.payment-methods {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+}
+
+.payment-button {
+  padding: 10px 20px;
+  background-color: #555;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.payment-button.selected {
+  background-color: #28a745;
+}
+
+.save-print-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #fdfdfd;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.clear-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .content-container {
+    flex-direction: column;
+  }
+
+  .center-panel {
+    flex: none;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .items-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cart-section {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .content-container {
+    padding: 10px;
+  }
+
+  .center-panel {
+    flex: none;
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+
+  .items-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .actions button {
+    margin: 5px 0;
+  }
+
+  .payment-methods {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .payment-button {
+    margin-bottom: 10px;
+  }
+
+  .cart-section {
+    padding: 15px;
+  }
+
+  .save-print-button, .clear-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .date-time {
+    font-size: 16px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .item-card {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .quantity-control {
+    gap: 8px;
+  }
+
+  .quantity-control button {
+    padding: 4px 8px;
+  }
+
+  .payment-methods {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .payment-button {
+    margin-bottom: 10px;
+  }
+}

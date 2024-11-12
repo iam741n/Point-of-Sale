@@ -1,0 +1,91 @@
+.sidebar {
+  width: 220px;
+  background-color: #333;
+  color: white;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  transition: width 0.3s ease; /* Smooth transition for width */
+}
+
+.sidebar.closed {
+  width: 60px; /* Sidebar collapsed width */
+}
+
+.logo {
+  width: 100%; /* Ensure the logo container takes the full width */
+  margin-bottom: 20px;
+  cursor: pointer; /* Make the logo clickable */
+  text-align: center;
+}
+
+.logo-img {
+  width: 40%; /* Ensure the logo is centered */
+}
+
+/* Control the visibility of the text */
+h2 {
+  font-size: 16px;
+  margin-top: 10px;
+  text-align: center;
+  visibility: visible; /* By default, make it visible */
+  transition: visibility 0.3s ease, opacity 0.3s ease; /* Smooth transition for visibility and opacity */
+}
+
+/* When the sidebar is closed, hide the text */
+.sidebar.closed h2 {
+  visibility: hidden; /* Hide text when sidebar is collapsed */
+  opacity: 0; /* Make sure the text disappears smoothly */
+}
+
+/* Sidebar item style remains the same */
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.sidebar-item:hover {
+  color: #fff;
+}
+
+.sidebar-item span {
+  margin-left: 10px;
+  visibility: visible; /* Ensure the span is visible when expanded */
+  transition: visibility 0.3s ease;
+}
+
+/* When the sidebar is closed, hide the text of the items */
+.sidebar.closed .sidebar-item span {
+  visibility: hidden;
+}
+
+/* User Profile Section */
+.sidebar-item.user-profile {
+  margin-top: auto;  /* Push to the bottom */
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #444;
+  margin-top: auto;
+  border-top: 1px solid #555;
+}
+
+.user-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;  /* Make the image circular */
+  object-fit: cover;  /* Ensure the image fits in the circle */
+  margin-right: 10px;
+}
+
+.user-name {
+  color: #fff;
+  font-size: 14px;
+}
