@@ -23,8 +23,7 @@ function Login() {
                         Not registered yet?{' '}
                         <a
                             href="/Signup"
-                            className="create-account-link"
-                          
+                            
                         >
                             Create an account
                         </a>
