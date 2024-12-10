@@ -14,7 +14,7 @@ const Signup = () => {
     Username: "",
     Password: "",
     Gender: "Male", // Default gender
-    Role: "User", // Default role
+    Role: "Employee", // Default role
   });
 
   const [errorMessage, setErrorMessage] = useState("");
@@ -58,7 +58,7 @@ const Signup = () => {
         Username: "",
         Password: "",
         Gender: "Male",
-        Role: "User",
+        Role: "Employee",
       });
     } catch (error) {
       setErrorMessage(error.response?.data || "An error occurred during signup.");
@@ -173,7 +173,7 @@ const Signup = () => {
             >
               <option value="Male">Male</option>
               <option value="Female">Female</option>
-              <option value="Other">Other</option>
+              {/* <option value="Other">Other</option> */}
             </select>
           </div>
           <div className="mb-3">

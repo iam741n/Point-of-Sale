@@ -1,0 +1,18 @@
+.admin-dashboard {
+    text-align: center;
+    margin-top: 50px;
+    font-family: Arial, sans-serif;
+}
+
+.blinking-message {
+    font-size: 40px;
+    color: #ff0000;
+    animation: blinker 1.5s linear infinite;
+    margin-top: 20px;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
