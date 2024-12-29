@@ -1,4 +1,8 @@
 /* Base Styles */
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
 .dashboard {
   display: flex;
   flex-wrap: wrap;
@@ -133,8 +137,8 @@
 .save-print-button {
   width: 100%;
   padding: 10px;
-  background-color: #fdfdfd;
-  color: rgb(0, 0, 0);
+  background-color: #28a745;
+  color: rgb(255, 255, 255);
   border: none;
   border-radius: 5px;
   cursor: pointer;

@@ -63,6 +63,7 @@ h2 {
 
 /* When the sidebar is closed, hide the text of the items */
 .sidebar.closed .sidebar-item span {
+  display: none;
   visibility: hidden;
 }
 
@@ -88,4 +89,34 @@ h2 {
 .user-name {
   color: #fff;
   font-size: 14px;
+}
+
+/* Dropdown Menu Styling */
+.dropdown-menu {
+  background-color: #444;
+  width: 100%;
+  padding-left: 20px;
+  display: block;
+  flex-direction: column;
+}
+.dropdown-content {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  background-color: #444;
+}
+
+.dropdown-item {
+  padding: 8px 10px;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.dropdown-item:hover {
+  color: #fff;
+}
+
+.dropdown-arrow {
+  margin-left: auto;
 }

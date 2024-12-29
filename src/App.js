@@ -7,6 +7,12 @@ import Signup from './Components/Signup';
 import { UserProvider } from './Contexts/UserContext';
 import AdminDashboard from './Components/AdminDashboard';
 import ProtectedRoute from './Components/ProtectedRoute';
+import AddRides from './Components/AddRides';
+import ManageRides from './Components/ManageRides';
+import TodaySales from './Components/TodaySales';
+import UpdateRideSale from './Components/UpdateRideSale';
+import CancelBill from './Components/CancelBill';
+
 function App() {
   return (
     <UserProvider>
@@ -16,9 +22,13 @@ function App() {
    <Route path="/Signup" element={<Signup />} />
    <Route element={<ProtectedRoute/>}>
    <Route path="/Dashboard" element={<Dashboard />} />
-   
    <Route path="/AdminDashboard" element={<AdminDashboard />} />
    </Route>
+   <Route path="/AddRides" element={<AddRides />} />
+   <Route path="/ManageRides" element={<ManageRides />} />
+   <Route path="/TodaySales" element={<TodaySales />} />
+   <Route path="/UpdateRideSale" element={<UpdateRideSale/>} />
+   <Route path="/CancelBill" element={<CancelBill/>} />
 
    
 
