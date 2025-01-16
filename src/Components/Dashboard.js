@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Sidebar from './Sidebar';
 import { Button, Form, Row, Col, Modal } from 'react-bootstrap';
 import '../Styles/Dashboard.css';
 import { useUser } from '../Contexts/UserContext';
 import { FaCalendarWeek, FaClock } from 'react-icons/fa';
 import axios from 'axios';
+import Sidebar2 from './Sidebar2';
 
 function Dashboard() {
   const { userData } = useUser();  // Access userData from context
@@ -223,7 +223,7 @@ const clearCart = () => {
 
   return (
     <div className="dashboard">
-      <Sidebar />
+      <Sidebar2 />
       <div className="content-container">
         {/* Center Panel */}
         <div className="center-panel">
@@ -233,11 +233,13 @@ const clearCart = () => {
           </div>
 
           {/* Action Buttons */}
+          {/* Action Section */}
           <div className="actions mt-3">
-            <button className="btn btn-primary"><Link to="/UpdateRideSale">Edit Bill</Link></button>
-            <button className="btn btn-primary"><Link to="/TodaySales">Print Bill</Link></button>
-            <button className="btn btn-warning">Hold</button>
-          </div>
+              <h2 className="text-center" style={{ fontFamily: 'Poppins, sans-serif' }}>
+             Welcome, <span className="text-primary text-custom-primary">{userName}</span>
+
+                    </h2>
+              </div>
 
            {/* Read-only forms for Bill No and Receipt No */}
            <Form className="bill-receipt-forms mt-3">

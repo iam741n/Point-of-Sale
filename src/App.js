@@ -12,6 +12,8 @@ import ManageRides from './Components/ManageRides';
 import TodaySales from './Components/TodaySales';
 import UpdateRideSale from './Components/UpdateRideSale';
 import CancelBill from './Components/CancelBill';
+import MainEditor from './Components/maineditor';
+import ExpenseManagement from './Components/ExpenseManagement';
 
 function App() {
   return (
@@ -29,6 +31,9 @@ function App() {
    <Route path="/TodaySales" element={<TodaySales />} />
    <Route path="/UpdateRideSale" element={<UpdateRideSale/>} />
    <Route path="/CancelBill" element={<CancelBill/>} />
+   <Route path="/me" element={<MainEditor/>} />
+   <Route path="/ExpenseManagement" element={<ExpenseManagement/>} />
+
 
    
 

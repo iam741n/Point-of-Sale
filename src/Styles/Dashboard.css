@@ -1,8 +1,14 @@
 /* Base Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 body {
   font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa; /* Optional: Adjust background color */
+  color: #212529; /* Optional: Adjust text color */
 }
+
 .dashboard {
   display: flex;
   flex-wrap: wrap;
@@ -15,29 +21,26 @@ body {
   padding: 20px;
   flex-wrap: wrap;
 }
-/* Override the default Bootstrap outline button styles for + and - buttons */
-/* Styling for buttons to make them black and white */
+
+/* Buttons */
 .btn-outline-secondary {
-  background-color: rgb(255, 255, 255) !important;  /* Ensure button background is black */
-  color: #000000 !important;  /* Ensure text color is white */
-  border-color: #ccc !important; /* Border color */
-  
+  background-color: rgb(255, 255, 255) !important;
+  color: #000000 !important;
+  border-color: #ccc !important;
+  font-family: 'Poppins', sans-serif !important; /* Ensure font consistency */
 }
 
-/* Hover effect */
 .btn-outline-secondary:hover {
-  background-color: #000000 !important;  /* Slightly lighter background on hover */
-  border-color: #aaa !important; /* Darker border on hover */
-  color: #f0f0f0 !important; /* Text color on hover */
+  background-color: #000000 !important;
+  border-color: #aaa !important;
+  color: #f0f0f0 !important;
 }
 
-/* Focus effect, just in case it might have a blue outline */
 .btn-outline-secondary:focus {
-  box-shadow: none !important; /* Remove the blue outline on focus */
+  box-shadow: none !important;
 }
 
-
-
+/* Panels and Containers */
 .center-panel {
   flex: 3;
   background-color: #2f2f2f;
@@ -45,6 +48,7 @@ body {
   padding: 20px;
   border-radius: 10px;
   margin-right: 20px;
+  font-family: 'Poppins', sans-serif; /* Apply font */
 }
 
 .date-time {
@@ -52,6 +56,7 @@ body {
   justify-content: space-between;
   font-size: 20px;
   margin-bottom: 15px;
+  font-family: 'Poppins', sans-serif; /* Apply font */
 }
 
 .actions {
@@ -63,7 +68,7 @@ body {
 .actions button {
   background-color: #ffffff;
   color: rgb(0, 0, 0);
-  font-family: "Verdana", "Helvetica", Sans-serif;
+  font-family: 'Poppins', sans-serif; /* Apply font */
   padding: 10px 15px;
   border: none;
   border-radius: 5px;
@@ -75,6 +80,7 @@ body {
   background-color: #777;
 }
 
+/* Grid for Items */
 .items-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -87,8 +93,10 @@ body {
   padding: 15px;
   border-radius: 10px;
   text-align: center;
+  font-family: 'Poppins', sans-serif; /* Apply font */
 }
 
+/* Quantity Control */
 .quantity-control {
   display: flex;
   justify-content: center;
@@ -104,8 +112,10 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-family: 'Poppins', sans-serif; /* Apply font */
 }
 
+/* Cart Section */
 .cart-section {
   flex: 1;
   background-color: #444;
@@ -113,8 +123,10 @@ body {
   padding: 20px;
   border-radius: 10px;
   margin-top: 20px;
+  font-family: 'Poppins', sans-serif; /* Apply font */
 }
 
+/* Payment Methods */
 .payment-methods {
   display: flex;
   justify-content: space-around;
@@ -128,12 +140,14 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-family: 'Poppins', sans-serif; /* Apply font */
 }
 
 .payment-button.selected {
   background-color: #28a745;
 }
 
+/* Save/Print and Clear Buttons */
 .save-print-button {
   width: 100%;
   padding: 10px;
@@ -143,6 +157,7 @@ body {
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
+  font-family: 'Poppins', sans-serif; /* Apply font */
 }
 
 .clear-button {
@@ -154,7 +169,27 @@ body {
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
+  font-family: 'Poppins', sans-serif; /* Apply font */
 }
+.text-custom-primary {
+  color: #F88379 !important; /* Primary color */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Adds a subtle shadow for depth */
+  font-weight: bold; /* Makes the text bold */
+  background: linear-gradient(90deg, #F88379, #FFB6C1); /* Adds a gradient effect */
+  background-clip: text; /* Standard property */
+  -webkit-background-clip: text; /* Clips the gradient to the text for WebKit browsers */
+  -webkit-text-fill-color: transparent; /* Makes the gradient visible on text for WebKit browsers */
+  /* font-size: 1.2rem; Slightly larger font size for emphasis */
+  letter-spacing: 0.5px; /* Adds some spacing between letters */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.text-custom-primary:hover {
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5); /* Darker shadow on hover */
+  transform: scale(1.1); /* Slightly enlarges the text on hover */
+  cursor: pointer; /* Changes cursor to pointer */
+}
+
 
 /* Responsive Design */
 @media (max-width: 1200px) {
@@ -216,7 +251,8 @@ body {
     padding: 15px;
   }
 
-  .save-print-button, .clear-button {
+  .save-print-button,
+  .clear-button {
     width: 100%;
   }
 }

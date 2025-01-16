@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {  useCallback, useState, useEffect } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Table, Form, Button, Row, Col } from "react-bootstrap";
@@ -11,8 +11,8 @@ const TodaySales = () => {
   const [rideName, setRideName] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("");
   const [loading, setLoading] = useState(false);
+  const [totalCollected, setTotalCollected] = useState(0); // New state for total collected amount
 
-  // Helper functions for formatting date and time
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString("en-US");
@@ -20,11 +20,8 @@ const TodaySales = () => {
 
   const formatTime = (time) => {
     if (!time) return "Invalid Time";
-  
     try {
-      // Create a Date object assuming the time is in UTC
-      const date = new Date(`1970-01-01T${time}`); 
-      // Convert to local time
+      const date = new Date(`1970-01-01T${time}`);
       return date.toLocaleTimeString([], {
         hour: "2-digit",
         minute: "2-digit",
@@ -36,38 +33,42 @@ const TodaySales = () => {
       return "Invalid Time";
     }
   };
-  
 
-  // Fetch sales data from the API
-  const fetchSalesData = async () => {
+  const fetchSalesData = useCallback(async () => {
     setLoading(true);
     try {
       const response = await axios.get(
         "http://localhost/POS/api/RideSales/GetTodaySales",
         {
           params: {
-            rideName: rideName,
-            paymentMethod: paymentMethod,
+            rideName,
+            paymentMethod,
           },
         }
       );
-      const formattedSales = response.data.map((sale) => ({
+  
+      const data = response.data?.Sales || [];
+      const formattedSales = data.map((sale) => ({
         ...sale,
         formattedDate: formatDate(sale.date),
-        formattedTime: formatTime(sale.date, sale.time),
+        formattedTime: formatTime(sale.time),
       }));
+  
       setSales(formattedSales);
+      // setTotalCollected(formattedSales.reduce((sum, sale) => sum + (sale.total_amount || 0), 0));
+      setTotalCollected(response.data.TotalAmountCollected);
+
     } catch (error) {
       console.error("Error fetching sales data", error);
     } finally {
       setLoading(false);
     }
-  };
-
-  // Fetch data when component mounts or when filters change
+  }, [rideName, paymentMethod]);
+  
+  
   useEffect(() => {
     fetchSalesData();
-  }, [rideName, paymentMethod]);
+  }, [fetchSalesData]);
 
   return (
     <div style={{ backgroundColor: "#101820", minHeight: "100vh", padding: "20px" }}>
@@ -119,6 +120,17 @@ const TodaySales = () => {
                   <option value="Cash">Cash</option>
                   <option value="Online Transfer">Online Transfer</option>
                 </Form.Control>
+              </Form.Group>
+            </Col>
+            <Col md={3}>
+              <Form.Group controlId="totalCollected">
+                <Form.Label style={{ fontWeight: "bold", color: "#101820" }}>Total Collected</Form.Label>
+                <Form.Control
+                  type="text"
+                  value={totalCollected.toFixed(2)}
+                  readOnly
+                  style={{ backgroundColor: "#fff", fontWeight: "bold", color: "#101820" }}
+                />
               </Form.Group>
             </Col>
             <Col md={3} className="d-flex align-items-end">
@@ -180,7 +192,7 @@ const TodaySales = () => {
                       <td>{sale.balance}</td>
                       <td>{sale.payment_method}</td>
                       <td>{sale.formattedDate}</td>
-                      <td>{formatTime(sale.time)}</td> {/* Updated */}
+                      <td>{sale.formattedTime}</td>
                       <td>{sale.created_at}</td>
                     </tr>
                   ))

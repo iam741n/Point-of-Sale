@@ -8,7 +8,7 @@ function Sidebar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isSalesDropdownOpen, setSalesDropdownOpen] = useState(false);
   const [isRidesDropdownOpen, setRidesDropdownOpen] = useState(false);
-
+  const [isExpenseDropdownOpen, setExpenseDropdownOpen] =useState(false);
   const { userData, logout } = useUser();
   const userName = userData ? `${userData.FirstName} ${userData.LastName}` : 'Guest';
   const userImage = '/user.png';
@@ -50,6 +50,8 @@ function Sidebar() {
   </div>
 )}
 
+
+
 <div className="sidebar-item" onClick={() => setRidesDropdownOpen(!isRidesDropdownOpen)}>
   <FaGamepad />
   <span>Rides</span>
@@ -59,10 +61,22 @@ function Sidebar() {
   <div className="dropdown-content">
     <div className="dropdown-item"><Link to="/AddRides">Add Rides</Link></div>
     <div className="dropdown-item"><Link to="/ManageRidess">Manage Rides</Link></div>
-    <div className="dropdown-item">Cancelled Rides</div>
   </div>
 )}
 
+
+<div className="sidebar-item" onClick={() => setExpenseDropdownOpen(!isExpenseDropdownOpen)}>
+<FaChartBar />
+  <span>Expense</span>
+  <span className="dropdown-arrow">{isExpenseDropdownOpen ? '▲' : '▼'}</span>
+</div>
+{isExpenseDropdownOpen && (
+  <div className="dropdown-content">
+    <div className="dropdown-item"><Link to="/ExpenseManagement">Add Expense & Debit</Link></div>
+    <div className="dropdown-item">Monthly Sales</div>
+    <div className="dropdown-item">Yearly Sales</div>
+  </div>
+)}
 
       <div className="sidebar-item">
         <FaUser />
