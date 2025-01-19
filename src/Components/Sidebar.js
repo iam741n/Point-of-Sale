@@ -9,6 +9,7 @@ function Sidebar() {
   const [isSalesDropdownOpen, setSalesDropdownOpen] = useState(false);
   const [isRidesDropdownOpen, setRidesDropdownOpen] = useState(false);
   const [isExpenseDropdownOpen, setExpenseDropdownOpen] =useState(false);
+  const [isAccountDropdownOpen, setAccountDropdownOpen] =useState(false);
   const { userData, logout } = useUser();
   const userName = userData ? `${userData.FirstName} ${userData.LastName}` : 'Guest';
   const userImage = '/user.png';
@@ -60,7 +61,7 @@ function Sidebar() {
 {isRidesDropdownOpen && (
   <div className="dropdown-content">
     <div className="dropdown-item"><Link to="/AddRides">Add Rides</Link></div>
-    <div className="dropdown-item"><Link to="/ManageRidess">Manage Rides</Link></div>
+    <div className="dropdown-item"><Link to="/ManageRides">Manage Rides</Link></div>
   </div>
 )}
 
@@ -73,15 +74,23 @@ function Sidebar() {
 {isExpenseDropdownOpen && (
   <div className="dropdown-content">
     <div className="dropdown-item"><Link to="/ExpenseManagement">Add Expense & Debit</Link></div>
-    <div className="dropdown-item">Monthly Sales</div>
+    <div className="dropdown-item"><Link to ="/ExpenseTable">Manage Expense</Link></div>
     <div className="dropdown-item">Yearly Sales</div>
   </div>
 )}
 
-      <div className="sidebar-item">
-        <FaUser />
-        <span>Accounts</span>
-      </div>
+<div className="sidebar-item" onClick={() => setAccountDropdownOpen(!isAccountDropdownOpen)}>
+  <FaUser />
+  <span>Accounts</span>
+  <span className="dropdown-arrow">{isAccountDropdownOpen ? '▲' : '▼'}</span>
+</div>
+{isAccountDropdownOpen && (
+  <div className="dropdown-content">
+    <div className="dropdown-item"><Link to ="/ManageDebitAccounts">Manage Debit Accounts</Link></div>
+    <div className="dropdown-item">Monthly Sales</div>
+    <div className="dropdown-item">Yearly Sales</div>
+  </div>
+)}
       <div className="sidebar-item">
         <FaTrash />
         <span><Link to='/CancelBill'>Cancellation</Link></span>

@@ -14,6 +14,8 @@ import UpdateRideSale from './Components/UpdateRideSale';
 import CancelBill from './Components/CancelBill';
 import MainEditor from './Components/maineditor';
 import ExpenseManagement from './Components/ExpenseManagement';
+import ExpenseTable from './Components/ExpenseTable';
+import ManageDebitAccounts from './Components/ManageDebitAccounts';
 
 function App() {
   return (
@@ -33,7 +35,8 @@ function App() {
    <Route path="/CancelBill" element={<CancelBill/>} />
    <Route path="/me" element={<MainEditor/>} />
    <Route path="/ExpenseManagement" element={<ExpenseManagement/>} />
-
+   <Route path="/ExpenseTable" element={<ExpenseTable/>} />
+   <Route path="/ManageDebitAccounts" element={<ManageDebitAccounts/>} />
 
    
 
